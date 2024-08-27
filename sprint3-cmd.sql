@@ -11,7 +11,7 @@ CREATE TABLE estados(
     
 CREATE TABLE cidades(
     idCidade       NUMBER(7)    CONSTRAINT cid_ibge_cod PRIMARY KEY,
-    nome           VARCHAR2(50) NOT NULL,
+    nome           VARCHAR2(200) NOT NULL,
     idEstado       NUMBER(7)    CONSTRAINT cid_estado_fk REFERENCES estados);
 
 CREATE TABLE bairros(
@@ -45,8 +45,8 @@ CREATE TABLE clientes(
                                 CONSTRAINT cli_cpf_uk UNIQUE
                                 CONSTRAINT cli_cpf_ck CHECK(LENGTH(cpf)=11),
     dataNasc       DATE,
-    telefone       VARCHAR2(50),
-    numeroEndereco NUMBER(10)   NOT NULL,
+    telefone       VARCHAR2(15),
+    numeroEndereco NUMBER(5)    NOT NULL,
     complementoEnd VARCHAR2(100),
     idEndereco     NUMBER(7)    CONSTRAINT cli_end_fk REFERENCES enderecos);
 
@@ -60,8 +60,8 @@ CREATE TABLE consultoras(
                                 CONSTRAINT cons_email_uk UNIQUE,
     senhaLogin     VARCHAR2(50) NOT NULL
                                 CONSTRAINT cons_senha_uk UNIQUE,
-    telefone       VARCHAR2(50) NOT NULL,
-    numeroEndereco NUMBER(10)   NOT NULL,
+    telefone       VARCHAR2(15) NOT NULL,
+    numeroEndereco NUMBER(5)    NOT NULL,
     complementoEnd VARCHAR2(100),
     idEndereco     NUMBER(7)    CONSTRAINT cons_end_fk REFERENCES enderecos,
     niveisConsultoras NUMBER(7) CONSTRAINT cons_niveis_fk REFERENCES niveis_consultoras);
@@ -101,5 +101,5 @@ CREATE TABLE compras_produtos(
     idProduto      NUMBER(7)    CONSTRAINT comp_prod_prod_fk REFERENCES produtos);
 
 CREATE TABLE clientes_consultoras(
-    idCliente      NUMBER(7) CONSTRAINT cli_cons_cli_id REFERENCES clientes,
-    idConsultora   NUMBER(7) CONSTRAINT cli_cons_cons_id REFERENCES consultoras); 
+    idCliente      NUMBER(7)    CONSTRAINT cli_cons_cli_id REFERENCES clientes,
+    idConsultora   NUMBER(7)    CONSTRAINT cli_cons_cons_id REFERENCES consultoras); 
