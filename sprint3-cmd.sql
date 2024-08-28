@@ -61,8 +61,7 @@ CREATE TABLE consultoras(
     senhaLogin     VARCHAR2(50) NOT NULL
                                 CONSTRAINT cons_senha_uk UNIQUE,
     telefone       VARCHAR2(15) NOT NULL,
-    saldo          NUMBER(8,2)  NOT NULL
-                                CONSTRAINT cons_saldo_ck CHECK(saldo>=0)
+    saldo          NUMBER(8,2),
     numeroEndereco NUMBER(5)    NOT NULL,
     complementoEnd VARCHAR2(100),
     idEndereco     NUMBER(7)    CONSTRAINT cons_end_fk REFERENCES enderecos,
