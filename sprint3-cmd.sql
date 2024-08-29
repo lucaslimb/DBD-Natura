@@ -58,8 +58,7 @@ CREATE TABLE consultoras(
     dataNasc       DATE         NOT NULL,
     emailLogin     VARCHAR2(200)NOT NULL
                                 CONSTRAINT cons_email_uk UNIQUE,
-    senhaLogin     VARCHAR2(50) NOT NULL
-                                CONSTRAINT cons_senha_uk UNIQUE,
+    senhaLogin     VARCHAR2(50) NOT NULL,
     telefone       VARCHAR2(15) NOT NULL,
     saldo          NUMBER(8,2),
     numeroEndereco NUMBER(5)    NOT NULL,
